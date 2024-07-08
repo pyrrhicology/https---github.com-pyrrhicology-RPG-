@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPG - The Hunter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="background"></div>
+    <div id="game">
+        <div id="stats">
+            <div class="stat-bar">
+                <span>XP:</span>
+                <div class="progress-bar">
+                    <div id="xpBar" class="progress"></div>
+                </div>
+                <span id="xpText">0</span>
+            </div>
+            <div class="stat-bar">
+                <span>Health:</span>
+                <div class="progress-bar">
+                    <div id="healthBar" class="progress"></div>
+                </div>
+                <span id="healthText">100</span>
+            </div>
+            <div class="stat-bar">
+                <span>Gold:</span>
+                <span id="goldText">50</span>
+            </div>
+        </div>
+
+        <div id="monsterStats">
+            <span class="stat">Monster Name: <strong><span id="monsterName"></span></strong></span>
+            <div class="stat-bar">
+                <span>Health:</span>
+                <div class="progress-bar">
+                    <div id="monsterHealthBar" class="progress"></div>
+                </div>
+                <span id="monsterHealth"></span>
+            </div>
+        </div>
+
+        <div id="gameArea">
+            <div id="text">Welcome to "The Hunter". You must defeat the horror that is preventing people from leaving the town. You are in the town square. Where do you want to go? Use the buttons below.</div>
+            
+            <div id="controls">
+                <button id="button1">Go to store</button>
+                <button id="button2">Go to the dungeons</button>
+                <button id="button3">Fight the horror</button>
+            </div>
+
+            <div id="inventory">
+                <h3>Inventory</h3>
+                <ul id="inventoryList"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
