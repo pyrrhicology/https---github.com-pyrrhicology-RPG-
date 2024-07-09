@@ -401,10 +401,25 @@ function fightGhost() {
   goFight();
 }
 
+function setInitialGameState() {
+  button1.innerText = "Go to store";
+  button2.innerText = "Go to dungeons";
+  button3.innerText = "Go to forest";
+  button4.innerText = "Fight the horror";
+  button1.onclick = goStore;
+  button2.onclick = goDungeons;
+  button3.onclick = goForest;
+  button4.onclick = fightHorror;
+  button4.style.display = "inline-block";
+  text.innerText = "Welcome to The Hunter. You are tasked with defeating the eldritch Horror that plagues this town. Where will you go first?";
+  background.style.backgroundImage = "url('images/town-entrance.jpg')";
+}
+
 function initializeGame() {
   text.innerText = "Welcome to The Hunter. You take on the role of the Hunter and you must defeat the eldritch Horror that is preventing people from leaving the town. You are in the town square. Where do you want to go? Use the buttons below.";
   updateInventory();
   updateStats();
+  setInitialGameState()
 }
 
 initializeGame();
