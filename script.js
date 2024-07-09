@@ -9,6 +9,7 @@ let inventory = ["Knife"];
 const button1 = document.querySelector("#button1");
 const button2 = document.querySelector("#button2");
 const button3 = document.querySelector("#button3");
+const button4 = document.querySelector("#button4");
 const text = document.querySelector("#text");
 const xpText = document.querySelector("#xpText");
 const healthText = document.querySelector("#healthText");
@@ -18,6 +19,8 @@ const monsterNameText = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
 const healthBar = document.querySelector("#healthBar");
 const background = document.querySelector("#background");
+const FOREST_LOCATION_INDEX = 8;  // or whatever the correct index is
+const GRAVEYARD_LOCATION_INDEX = 9;  // or whatever the correct index is
 
 const weapons = [
   { name: "Knife", power: 5 },
@@ -38,8 +41,8 @@ const monsters = [
 const locations = [
   {
     name: "town square",
-    "button text": ["Go to store", "Go to dungeons", "Fight the horror"],
-    "button functions": [goStore, goDungeons, fightHorror],
+    "button text": ["Go to store", "Go to dungeons", "Go to forest", "Fight the horror"],
+    "button functions": [goStore, goDungeons, goForest, fightHorror],
     text: "You are in the town square. You see a sign that says \"Store\".",
     bgImage: "url('images/town-square.jpg')"
   },
@@ -123,6 +126,14 @@ function update(location) {
   button3.onclick = location["button functions"][2];
   text.innerText = location.text;
   background.style.backgroundImage = location.bgImage;
+
+  if (location["button text"].length > 3) {
+    button4.style.display = "inline-block";
+    button4.innerText = location["button text"][3];
+    button4.onclick = location["button functions"][3];
+  } else {
+    button4.style.display = "none";
+  }
 }
 
 function goTown() {
@@ -135,6 +146,15 @@ function goStore() {
 
 function goDungeons() {
   update(locations[2]);
+}
+
+function goForest() {
+  console.log("Going to forest");
+  update(locations[locations.findIndex(loc => loc.name === "forest")]);
+}
+
+function goGraveyard() {
+  update(locations[9]);
 }
 
 function buyHealth() {
