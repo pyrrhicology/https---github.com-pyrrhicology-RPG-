@@ -29,7 +29,10 @@ const weapons = [
 const monsters = [
   { name: "undead", level: 2, health: 15 },
   { name: "fanged beast", level: 8, health: 60 },
-  { name: "The Horror", level: 20, health: 300 }
+  { name: "The Horror", level: 20, health: 300 },
+  { name: "Skeleton", level: 5, health: 40 },
+  { name: "Zombie", level: 10, health: 80 },
+  { name: "Ghost", level: 15, health: 120 }
 ];
 
 const locations = [
@@ -88,6 +91,20 @@ const locations = [
     "button functions": [pickTwo, pickEight, goTown],
     text: "You find a secret game. Pick a number above. Ten numbers will be randomly chosen between 0 and 10. If the number you choose matches one of the random numbers, you win!",
     bgImage: "url('images/easter-egg.jpg')"
+  },
+  {
+    name: "forest",
+    "button text": ["Fight Skeleton", "Go to Town Square", "Go to Graveyard"],
+    "button functions": [fightSkeleton, goTown, goGraveyard],
+    text: "You find yourself in a dark and eerie forest.",
+    bgImage: "url('images/forest.jpg')"
+  },
+  {
+    name: "graveyard",
+    "button text": ["Fight Zombie", "Fight Ghost", "Go to Town Square"],
+    "button functions": [fightZombie, fightGhost, goTown],
+    text: "The air grows cold as you enter a misty graveyard.",
+    bgImage: "url('images/graveyard.jpg')"
   }
 ];
 
@@ -349,6 +366,20 @@ function monsterTurn() {
   });
 }
 
+function fightSkeleton() {
+  fighting = 3; // Index of the Skeleton in the monsters array
+  goFight();
+}
+
+function fightZombie() {
+  fighting = 4; // Index of the Zombie in the monsters array
+  goFight();
+}
+
+function fightGhost() {
+  fighting = 5; // Index of the Ghost in the monsters array
+  goFight();
+}
 
 function initializeGame() {
   text.innerText = "Welcome to The Hunter. You take on the role of the Hunter and you must defeat the eldritch Horror that is preventing people from leaving the town. You are in the town square. Where do you want to go? Use the buttons below.";
